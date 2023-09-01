@@ -1,9 +1,6 @@
-using API.Errors;
 using API.Extensions;
 using API.Middleware;
-using Core.Interfaces;
 using Infrastructure.Data;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +25,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseStaticFiles();
 
+app.UseCors("CorsPolicy");
 //app.UseHttpsRedirection();
 
 app.UseAuthorization();

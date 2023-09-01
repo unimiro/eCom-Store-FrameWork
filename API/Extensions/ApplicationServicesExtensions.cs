@@ -1,3 +1,9 @@
+using API.Errors;
+using Core.Interfaces;
+using Infrastructure.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 namespace API.Extensions
 {
     public static class ApplicationServicesExtensions
@@ -34,7 +40,15 @@ namespace API.Extensions
                 };
             });
 
-            return services
-            }
+            services.AddCors(opt => 
+            {
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+                });
+            });
+
+            return services;
+        }
     }
 }
