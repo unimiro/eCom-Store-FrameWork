@@ -12,10 +12,20 @@
     <div class="row" formGroupName="addressForm">
         <div class="form-group col-6">
             <app-text-input [label]="'First name'" formControlName="firstName"></app-text-input>
+        </div>
+        <div class="form-group col-6">
             <app-text-input [label]="'Last name'" formControlName="lastName"></app-text-input>
+        </div>
+        <div class="form-group col-6">
             <app-text-input [label]="'Street'" formControlName="street"></app-text-input>
+        </div>
+        <div class="form-group col-6">
             <app-text-input [label]="'City'" formControlName="city"></app-text-input>
+        </div>
+        <div class="form-group col-6">
             <app-text-input [label]="'State'" formControlName="state"></app-text-input>
+        </div>
+        <div class="form-group col-6">
             <app-text-input [label]="'Zip code'" formControlName="zipcode"></app-text-input>
         </div>
     </div>
@@ -25,7 +35,7 @@
     <button class="btn btn-outline-primary" routerLink="/basket">
         <i class="fa fa-angle-left"> Back to basket</i>
     </button>
-    <button class="btn btn-primary" cdkStepperNext>
+    <button [disabled]="checkoutForm?.get('addressForm')?.invalid" class="btn btn-primary" cdkStepperNext>
         <i class="fa fa-angle-right"> Go to Delivery</i>
     </button>
 </div>
