@@ -57,7 +57,7 @@ namespace API.Controllers
                     break;
             }
 
-            return Ok();
+            return new EmptyResult();
         }
     }
 }
